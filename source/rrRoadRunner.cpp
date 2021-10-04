@@ -393,15 +393,19 @@ namespace rr {
         }
 
         void syncAllSolversWithModel(ExecutableModel *m) {
+            m->print(std::cout);
             for (auto &integrator : integrators) {
                 integrator->syncWithModel(m);
             }
+            m->print(std::cout);
             for (auto &steady_state_solver : steady_state_solvers) {
                 steady_state_solver->syncWithModel(m);
             }
+            m->print(std::cout);
             for (auto &sensitivity_solver : sensitivity_solvers) {
                 sensitivity_solver->syncWithModel(m);
             }
+            m->print(std::cout);
         }
 
         void setParameterValue(const ParameterType parameterType,
@@ -1340,6 +1344,8 @@ namespace rr {
             libsbml::SBMLReader reader;
             impl->document.reset(reader.readSBMLFromString(mCurrentSBML));
             impl->model.reset(ExecutableModelFactory::createModel(mCurrentSBML, &impl->loadOpt));
+            std::cout << impl->model;
+
         } catch (const rr::UninitializedValueException &e) {
             // catch specifically for UninitializedValueException, otherwise for some
             // reason the message is erased, and an 'unknown error' is displayed to the user.

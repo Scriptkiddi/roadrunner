@@ -48,6 +48,8 @@ private:
 
     llvm::Value *nameExprCodeGen(const libsbml::ASTNode *ast);
 
+    llvm::Value *rateOfCodeGen(const libsbml::ASTNode* ast);
+
     llvm::Value *realExprCodeGen(const libsbml::ASTNode *ast);
 
     /**
