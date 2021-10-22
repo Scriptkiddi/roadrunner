@@ -158,8 +158,6 @@ class DataSeries:
         # If there are no column names then make some up
         if hasattr(numPyData, "colnames") and not numPyData.colnames == None:
             colHdr  = numPyData.colnames
-        elif not numPyData.colnames == None:
-            colHdr  = numPyData.colnames
         else:
             colHdr = []
             for i in range (nrCols):
