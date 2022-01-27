@@ -1,0 +1,31 @@
+Tool,Repeat,Time (sec),Failures
+RoadRunner Serial (MCJit),1,134.47,20
+RoadRunner Serial (MCJit),2,136.35,20
+RoadRunner Serial (MCJit),3,142.45,20
+RoadRunner Serial (MCJit),4,137.07,20
+RoadRunner Serial (MCJit),5,144.94,20
+RoadRunner Serial (LLJit),1,48.51,20
+RoadRunner Serial (LLJit),2,38.57,20
+RoadRunner Serial (LLJit),3,38.07,20
+RoadRunner Serial (LLJit),4,38.09,20
+RoadRunner Serial (LLJit),5,38.27,20
+RoadRunnerMap (MCJit),1,30.22,20
+RoadRunnerMap (MCJit),2,34.92,20
+RoadRunnerMap (MCJit),3,35.25,20
+RoadRunnerMap (MCJit),4,40.7,20
+RoadRunnerMap (MCJit),5,32.46,20
+RoadRunner Map (LLJit),1,22.11,20
+RoadRunner Map (LLJit),2,25.44,20
+RoadRunner Map (LLJit),3,25.91,20
+RoadRunner Map (LLJit),4,24.67,20
+RoadRunner Map (LLJit),5,25.26,20
+Copasi / Basico Serial,1,163.53,18
+Copasi / Basico Serial,2,166.38,18
+Copasi / Basico Serial,3,164.32,18
+Copasi / Basico Serial,4,166.51,18
+Copasi / Basico Serial,5,157.41,18
+Copasi / Basico Multithreaded,1,64.15,18
+Copasi / Basico Multithreaded,2,72.06,18
+Copasi / Basico Multithreaded,3,64.87,18
+Copasi / Basico Multithreaded,4,66.15,18
+Copasi / Basico Multithreaded,5,72.38,18
