@@ -1,6 +1,7 @@
 JIT Compilation
 _______________
 
+Cheese
 
 .. class:: Compiler()
    :module: RoadRunner

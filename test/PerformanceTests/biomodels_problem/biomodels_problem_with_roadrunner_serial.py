@@ -1,36 +1,38 @@
-from basico import *
 import os
 import glob
 import time
-import sbmltoodepy
 import sys
-from importlib import import_module
 import multiprocessing
 from roadrunner.roadrunner import RoadRunner, Config
-from get_biomodels import get_biomodels
-
+try:
+    from get_biomodels import get_biomodels
+except ImportError:
+    def get_biomodels():
+        return os.path.join(os.path.dirname(__file__), "biomodels")
 # Config.setValue(Config.LLVM_BACKEND, Config.LLJIT)
-Config.setValue(Config.LLVM_BACKEND, Config.MCJIT)
+# Config.setValue(Config.LLVM_BACKEND, Config.MCJIT)
 
 # we have to disable to model caching so that repeats are independent
 Config.setValue(Config.LOADSBMLOPTIONS_RECOMPILE, True)
 
 if __name__ == "__main__":
+
     biomodels_folder = get_biomodels()
+
     biomodels_files = glob.glob(os.path.join(biomodels_folder, "*.xml"))
 
     for i in range(5):
         start = time.time()
         dct = dict()
         failure_counts = 0
-        for model_file in biomodels_files[2:3]:
-            print(model_file)
+        for model_file in biomodels_files:
+            # print(model_file)
             try:
                 # extract biomodels id
                 biomodels_id = os.path.splitext(os.path.split(model_file)[1])[0]
                 dct[biomodels_id] = RoadRunner(model_file)
                 res = dct[biomodels_id].simulate(0, 100, 101)
-                print(res)
+                # print(res)
             except Exception:
                 failure_counts += 1
                 print(f"Model {model_file} failed")
@@ -58,6 +60,20 @@ LLJit Serial
     Took:  38.09479331970215 seconds
     Took:  38.26501393318176 seconds
 
+RoadRunner v2.0.0
+Took:  148.05567336082458 seconds
+Took:  161.6247260570526 seconds
+Took:  154.80478954315186 seconds
+Took:  157.07073497772217 seconds
+Took:  155.3123631477356 seconds
 
+RoadRunner v1.6.1
+Took:  142.58917140960693 seconds
+Took:  151.32360291481018 seconds
+Took:  149.48247933387756 seconds
+Took:  150.19932913780212 seconds
+Took:  156.40406203269958 seconds
+
+1.5.6.1
 
 """
